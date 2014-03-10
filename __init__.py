@@ -2,3 +2,5 @@
 #
 # Module Open Academy for OpenERP
 #
+
+import course
