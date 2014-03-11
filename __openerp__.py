@@ -17,5 +17,6 @@ This module is aimed at managing training sessions:
     'depends': ['base'],
     'data': [
         'view/menu.xml',
+        'view/course.xml',
     ],
 }
