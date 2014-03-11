@@ -18,5 +18,15 @@
         <menuitem id="menu_courses" parent="menu_group" sequence="10"
             action="action_courses"/>
 
+
+        <record id="action_sessions" model="ir.actions.act_window">
+            <field name="name">Sessions</field>
+            <field name="res_model">openacademy.session</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_sessions" parent="menu_group" sequence="20"
+            action="action_sessions"/>
+
     </data>
 </openerp>
