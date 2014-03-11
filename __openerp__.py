@@ -12,7 +12,10 @@ This module is aimed at managing training sessions:
  - attendee subscription.
 """,
     'version': '1.0',
-    'author': 'Me',
+    'author': '7Gates Interactive Technologies',
+    'website': 'http://7gates.co',
     'depends': ['base'],
-    'data': [],
+    'data': [
+        'view/menu.xml',
+    ],
 }
