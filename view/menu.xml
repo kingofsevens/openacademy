@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <menuitem id="menu_root" sequence="10" name="Open Academy"/>
+
+        <menuitem id="menu_group" parent="menu_root" name="Open Academy"/>
+
+        <record id="action_courses" model="ir.actions.act_window">
+            <field name="name">Courses</field>
+            <field name="res_model">openacademy.course</field>
+            <field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">A nice arrow with some help for your first record</p>
+			    </field>
+        </record>
+
+        <menuitem id="menu_courses" parent="menu_group" sequence="10"
+            action="action_courses"/>
+
+    </data>
+</openerp>
