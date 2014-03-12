@@ -18,5 +18,6 @@ This module is aimed at managing training sessions:
     'data': [
         'view/menu.xml',
         'view/course.xml',
+        'view/session.xml',
     ],
 }

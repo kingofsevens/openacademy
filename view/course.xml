@@ -11,6 +11,9 @@
                         <h1>
                             <field name="name" placeholder="Course Title"/>
                         </h1>
+                        <group>
+                            <field name="responsible"/>
+                        </group>
                         <notebook>
                             <page string="Description">
                                 <field name="description"/>
