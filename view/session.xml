@@ -32,6 +32,7 @@
                                 <field name="start_date"/>
                                 <field name="duration"/>
                                 <field name="seats"/>
+								<field name="completion"/>
                             </group>
                         </group>
                         <notebook>
