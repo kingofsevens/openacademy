@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
     <data>
+		
+        <record id="session_list_view" model="ir.ui.view">
+            <field name="name">session.list</field>
+            <field name="model">openacademy.session</field>
+            <field name="arch" type="xml">
+                <tree string="Sessions">
+                    <field name="name"/>
+                    <field name="course"/>
+                    <field name="start_date"/>
+                </tree>
+            </field>
+        </record>
 
         <record id="session_form_view" model="ir.ui.view">
             <field name="name">session.form</field>

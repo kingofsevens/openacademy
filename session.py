@@ -8,7 +8,8 @@ from openerp.osv import osv, fields
 class Session(osv.Model):
     _name = 'openacademy.session'
     _description = 'Sessions'
-
+    _order = 'start_date'
+    
     _columns = {
         'name': fields.char(string='Name', required=True),
         'start_date': fields.date(string='Start Date'),

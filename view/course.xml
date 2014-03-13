@@ -19,7 +19,12 @@
                                 <field name="description"/>
                             </page>
                             <page string="Sessions">
-                                <field name="sessions"/>
+                                <field name="sessions">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="start_date"/>
+                                    </tree>
+                                </field>
                             </page>
                         </notebook>
                     </sheet>
