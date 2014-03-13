@@ -22,6 +22,11 @@
                                 <field name="seats"/>
                             </group>
                         </group>
+                        <notebook>
+                            <page string="Attendees">
+                                <field name="attendees"/>
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>

@@ -18,4 +18,6 @@ class Course(osv.Model):
             # ’set null’ will reset responsible_id to
             # undefined if responsible was deleted
             ondelete='set null', string='Responsible'),
+        # A one2many is the inverse link of a many2one    
+        'sessions': fields.one2many('openacademy.session', 'course', string='Sessions'),
     }

@@ -21,4 +21,5 @@ class Session(osv.Model):
                 # ’cascade’ will destroy session if course_id was deleted
                 ondelete='cascade', string='Course', required=True),
         'instructor': fields.many2one('res.partner', string='Instructor'),
+        'attendees': fields.many2many('res.partner', string='Attendees'),
     }
