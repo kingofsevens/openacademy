@@ -12,4 +12,7 @@ class Course(osv.Model):
     _columns = {
         'name': fields.char(string='Title', required=True),
         'description': fields.text(string='Description'),
+        
+        # relational fields
+        'responsible': fields.many2one('res.users', string='Responsible'),
     }
