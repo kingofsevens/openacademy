@@ -17,6 +17,8 @@ class Session(osv.Model):
         'seats': fields.integer(string='Number of Seats'),
         
         # relational fields
-        'course': fields.many2one('openacademy.course', string='Course', required=True),
+        'course': fields.many2one('openacademy.course', 
+                # ’cascade’ will destroy session if course_id was deleted
+                ondelete='cascade', string='Course', required=True),
         'instructor': fields.many2one('res.partner', string='Instructor'),
     }

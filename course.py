@@ -14,5 +14,8 @@ class Course(osv.Model):
         'description': fields.text(string='Description'),
         
         # relational fields
-        'responsible': fields.many2one('res.users', string='Responsible'),
+        'responsible': fields.many2one('res.users', 
+            # ’set null’ will reset responsible_id to
+            # undefined if responsible was deleted
+            ondelete='set null', string='Responsible'),
     }
