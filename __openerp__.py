@@ -16,6 +16,7 @@ This module is aimed at managing training sessions:
     'website': 'http://7gates.co',
     'depends': ['base'],
     'data': [
+        'data/partner.xml',
         'view/menu.xml',
         'view/course.xml',
         'view/session.xml',
