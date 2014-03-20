@@ -32,13 +32,15 @@
                             <group string="Schedule">
                                 <field name="start_date"/>
                                 <field name="duration"/>
-                                <field name="seats"/>
+                                <field name="seats" 
+									on_change="onchange_seats(attendees, seats)"/>
 								<field name="completion" widget="progressbar"/>
                             </group>
                         </group>
                         <notebook>
                             <page string="Attendees">
-                                <field name="attendees"/>
+                                <field name="attendees" 
+									on_change="onchange_seats(attendees, seats)"/>
                             </page>
                         </notebook>
                     </sheet>

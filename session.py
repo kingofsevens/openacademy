@@ -19,6 +19,15 @@ class Session(osv.Model):
                 res[session.id] = 0.0
         return res
 
+    def onchange_seats(self, cr, uid, ids, attendees, seats, context=None):
+        if seats:
+            dicts = self.resolve_2many_commands(cr, uid, 'attendees', attendees, ['id'])
+            completion = 100.0 * len(dicts) / seats
+        else:
+            completion = 0
+        return {'value': {'completion': completion}}
+
+
     _columns = {
         'name': fields.char(string='Name', required=True),
         'start_date': fields.date(string='Start Date'),
