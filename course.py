@@ -21,3 +21,9 @@ class Course(osv.Model):
         # A one2many is the inverse link of a many2one    
         'sessions': fields.one2many('openacademy.session', 'course', string='Sessions'),
     }
+
+    _sql_constraints = [
+        ('name_unique', 'UNIQUE(name)', 'Course titles must be distinct.'),
+    ]
+    
+    
