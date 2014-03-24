@@ -23,7 +23,15 @@ class Course(osv.Model):
     }
 
     _sql_constraints = [
-        ('name_unique', 'UNIQUE(name)', 'Course titles must be distinct.'),
+    
+        ('name_description_check', 
+            'CHECK(name <> description)', 
+            'The title of the course should be different of the description'),
+            
+        ('name_unique', 
+            'UNIQUE(name)', 
+            'Course titles must be distinct.'),
+            
     ]
     
     
