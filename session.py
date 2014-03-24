@@ -55,3 +55,15 @@ class Session(osv.Model):
                         string='Completion', help='Percentage of taken seats.'),
         
         }
+        
+    def _check_instructor(self, cr, uid, ids, context=None):
+        for session in self.browse(cr, uid, ids, context):
+            if session.instructor in session.attendees:
+                return False
+        return True
+
+    _constraints = [
+        (_check_instructor, 'Instructors cannot attend their own session.',
+            ['instructor', 'attendees']),
+    ]
+
