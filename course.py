@@ -33,5 +33,12 @@ class Course(osv.Model):
             'Course titles must be distinct.'),
             
     ]
-    
-    
+
+    def copy(self, cr, uid, id, default, context=None):
+        # duplicate the course with the given id
+        course = self.browse(cr, uid, id, context)
+        new_name = "%s (copy)" % course.name
+        # use a different name for the copy, and do not duplicate sessions
+        default = dict(default, name=new_name, sessions=[])
+        return super(Course, self).copy(cr, uid, id, default, context)
+
