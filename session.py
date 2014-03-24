@@ -40,6 +40,7 @@ class Session(osv.Model):
         'duration': fields.float(string='Duration', digits=(6,1),
                                 help="Duration in days."),
         'seats': fields.integer(string='Number of Seats'),
+        'active': fields.boolean('Active'),
         
         # relational fields
         'course': fields.many2one('openacademy.course', 
@@ -53,8 +54,12 @@ class Session(osv.Model):
         # function fields
         'completion': fields.function(_get_completion, type='float',
                         string='Completion', help='Percentage of taken seats.'),
-        
         }
+        
+    _defaults = {
+        'active': True,
+        'start_date': fields.date.today,
+    }
         
     def _check_instructor(self, cr, uid, ids, context=None):
         for session in self.browse(cr, uid, ids, context):

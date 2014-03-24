@@ -28,6 +28,7 @@
                             <group string="General">
                                 <field name="course"/>
                                 <field name="instructor"/>
+								<field name="active"/>
                             </group>
                             <group string="Schedule">
                                 <field name="start_date"/>
