@@ -25,7 +25,13 @@ class Session(osv.Model):
             completion = 100.0 * len(dicts) / seats
         else:
             completion = 0
-        return {'value': {'completion': completion}}
+        res = {'value': {'completion': completion}}
+        if seats < 0:
+            res['warning'] = {
+                'title': "Warning: bad value",
+                'message': "The number of seats should not be negative!"
+            }
+        return res
 
 
     _columns = {
