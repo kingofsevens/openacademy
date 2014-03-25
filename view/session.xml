@@ -22,6 +22,9 @@
             <field name="model">openacademy.session</field>
             <field name="arch" type="xml">
                 <form string="Session" version="7.0">
+					<header>
+					    <field name="state" widget="statusbar"/>
+					</header>
                     <sheet>
                         <h1>
                             <field name="name" placeholder="Session Name"/>
@@ -31,7 +34,6 @@
                                 <field name="course"/>
                                 <field name="instructor"/>
 								<field name="active"/>
-								<field name="state"/>
                             </group>
                             <group string="Schedule">
                                 <field name="start_date"/>
