@@ -38,7 +38,7 @@ class Session(osv.Model):
         session = self.browse(cr, uid, id, context)
         if session.start_date and value:
             dt0 = datetime.strptime(session.start_date, DATE_FORMAT)
-            dt1 = datetime.strptime(value, DATE_FORMAT)
+            dt1 = datetime.strptime(value[:10], DATE_FORMAT)
             duration = (dt1 - dt0).days + 1
         else:
             duration = 0
