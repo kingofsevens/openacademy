@@ -112,3 +112,11 @@ class Session(osv.Model):
             ['instructor', 'attendees']),
     ]
 
+    def action_confirm(self, cr, uid, ids, context=None):
+        return self.write(cr, uid, ids, {'state': 'confirmed'}, context=context)
+    
+    def action_done(self, cr, uid, ids, context=None):
+        return self.write(cr, uid, ids, {'state': 'done'}, context=context)
+    
+    def action_reset(self, cr, uid, ids, context=None):
+        return self.write(cr, uid, ids, {'state': 'draft'}, context=context)
