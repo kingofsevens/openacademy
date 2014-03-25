@@ -34,6 +34,11 @@
             <field name="condition">True</field>
             <field name="signal">confirm</field>
         </record>
+		<record id="workflow_transition_auto_confirmed" model="workflow.transition">
+		    <field name="act_from" ref="workflow_activity_draft"/>
+		    <field name="act_to" ref="workflow_activity_confirmed"/>
+		    <field name="condition">completion &gt;= 50</field>
+		</record>
         <record id="workflow_transition_confirmed_done" model="workflow.transition">
             <field name="act_from" ref="workflow_activity_confirmed"/>
             <field name="act_to" ref="workflow_activity_done"/>
