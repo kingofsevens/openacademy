@@ -17,6 +17,7 @@ This module is aimed at managing training sessions:
     'depends': ['base'],
     'data': [
         'data/partner.xml',
+        'workflow/session.xml',
         'view/menu.xml',
         'view/course.xml',
         'view/session.xml',

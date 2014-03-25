@@ -23,11 +23,11 @@
             <field name="arch" type="xml">
                 <form string="Session" version="7.0">
 					<header>
-						<button name="action_confirm" type="object" states="draft"
+						<button name="confirm" type="workflow" states="draft"
 						    string="Confirm" class="oe_highlight"/>
-						<button name="action_done" type="object" states="confirmed"
+						<button name="done" type="workflow" states="confirmed"
 						    string="Mark as Done" class="oe_highlight"/>
-						<button name="action_reset" type="object" states="confirmed,done"
+						<button name="reset" type="workflow" states="confirmed,done"
 							string="Reset to Draft"/>
 					    <field name="state" widget="statusbar"/>
 					</header>

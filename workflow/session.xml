@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+		
+        <record id="workflow_session" model="workflow">
+            <field eval="1" name="on_create"/>
+            <field name="name">session workflow</field>
+            <field name="osv">openacademy.session</field>
+        </record>
+
+        <record id="workflow_activity_draft" model="workflow.activity">
+            <field name="wkf_id" ref="workflow_session"/>
+            <field name="name">draft</field>
+            <field name="kind">function</field>
+            <field name="action">action_reset()</field>
+            <field eval="1" name="flow_start"/>
+        </record>
+        <record id="workflow_activity_confirmed" model="workflow.activity">
+            <field name="wkf_id" ref="workflow_session"/>
+            <field name="name">confirmed</field>
+            <field name="kind">function</field>
+            <field name="action">action_confirm()</field>
+        </record>
+        <record id="workflow_activity_done" model="workflow.activity">
+            <field name="wkf_id" ref="workflow_session"/>
+            <field name="name">done</field>
+            <field name="kind">function</field>
+            <field name="action">action_done()</field>
+        </record>
+
+        <record id="workflow_transition_draft_confirmed" model="workflow.transition">
+            <field name="act_from" ref="workflow_activity_draft"/>
+            <field name="act_to" ref="workflow_activity_confirmed"/>
+            <field name="condition">True</field>
+            <field name="signal">confirm</field>
+        </record>
+        <record id="workflow_transition_confirmed_done" model="workflow.transition">
+            <field name="act_from" ref="workflow_activity_confirmed"/>
+            <field name="act_to" ref="workflow_activity_done"/>
+            <field name="condition">True</field>
+            <field name="signal">done</field>
+        </record>
+        <record id="workflow_transition_confirmed_draft" model="workflow.transition">
+            <field name="act_from" ref="workflow_activity_confirmed"/>
+            <field name="act_to" ref="workflow_activity_draft"/>
+            <field name="condition">True</field>
+            <field name="signal">reset</field>
+        </record>
+        <record id="workflow_transition_done_draft" model="workflow.transition">
+            <field name="act_from" ref="workflow_activity_done"/>
+            <field name="act_to" ref="workflow_activity_draft"/>
+            <field name="condition">True</field>
+            <field name="signal">reset</field>
+        </record>
+		
+    </data>
+</openerp>
