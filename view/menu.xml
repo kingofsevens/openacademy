@@ -23,7 +23,7 @@
         <record id="action_sessions" model="ir.actions.act_window">
             <field name="name">Sessions</field>
             <field name="res_model">openacademy.session</field>
-            <field name="view_mode">tree,form,calendar</field>
+            <field name="view_mode">tree,form,calendar,graph</field>
         </record>
 
         <menuitem id="menu_sessions" parent="menu_group" sequence="20"

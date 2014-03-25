@@ -44,6 +44,12 @@ class Session(osv.Model):
             duration = 0
         self.write(cr, uid, [id], {'duration': duration}, context=context)
 
+    def _get_attendee_count(self, cr, uid, ids, field, arg, context=None):
+        res = {}
+        for session in self.browse(cr, uid, ids, context):
+            res[session.id] = len(session.attendees)
+        return res
+
     def onchange_seats(self, cr, uid, ids, attendees, seats, context=None):
         if seats:
             dicts = self.resolve_2many_commands(cr, uid, 'attendees', attendees, ['id'])
@@ -81,6 +87,8 @@ class Session(osv.Model):
                         string='Completion', help='Percentage of taken seats.'),
         'end_date': fields.function(_get_end_date, fnct_inv=_set_end_date,
                         type='date', string='End Date'),
+        'attendee_count': fields.function(_get_attendee_count, type='integer',
+                        string='Number of Attendees', store=True),
         }
         
     _defaults = {

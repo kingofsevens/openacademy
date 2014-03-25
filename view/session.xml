@@ -61,6 +61,17 @@
 				</calendar>
 			</field>
 		</record>
-
+		
+		<record id="session_graph_view" model="ir.ui.view">
+		    <field name="name">session.graph</field>
+		    <field name="model">openacademy.session</field>
+		    <field name="arch" type="xml">
+		        <graph string="Participation by Course" type="pie">
+		            <field name="course"/>
+		            <field name="attendee_count" operator="+"/>
+		        </graph>
+		    </field>
+		</record>
+		
     </data>
 </openerp>
