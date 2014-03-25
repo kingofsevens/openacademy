@@ -72,6 +72,7 @@ class Session(osv.Model):
                                 help="Duration in days."),
         'seats': fields.integer(string='Number of Seats'),
         'active': fields.boolean('Active'),
+        'color': fields.integer('Color'),
         
         # relational fields
         'course': fields.many2one('openacademy.course', 
