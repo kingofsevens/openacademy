@@ -3,7 +3,10 @@
 # Module Open Academy for OpenERP
 #
 
+from datetime import datetime, timedelta
+
 from openerp.osv import osv, fields
+from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as DATE_FORMAT
 
 class Session(osv.Model):
     _name = 'openacademy.session'
@@ -18,6 +21,20 @@ class Session(osv.Model):
             else:
                 res[session.id] = 0.0
         return res
+
+    def _get_end_date(self, cr, uid, ids, field, arg, context=None):
+        res = {}
+        for session in self.browse(cr, uid, ids, context):
+            if session.start_date:
+                dt = datetime.strptime(session.start_date, DATE_FORMAT)
+                if session.duration > 0:
+                    dt += timedelta(days=session.duration, seconds=-1)
+                res[session.id] = dt.strftime(DATE_FORMAT)
+            else:
+                res[session.id] = False
+        return res
+
+
 
     def onchange_seats(self, cr, uid, ids, attendees, seats, context=None):
         if seats:
@@ -54,6 +71,7 @@ class Session(osv.Model):
         # function fields
         'completion': fields.function(_get_completion, type='float',
                         string='Completion', help='Percentage of taken seats.'),
+        'end_date': fields.function(_get_end_date, type='date', string='End Date'),
         }
         
     _defaults = {
