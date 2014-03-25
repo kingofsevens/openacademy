@@ -2,6 +2,20 @@
 <openerp>
     <data>
 
+		<record id="course_search_view" model="ir.ui.view">
+			<field name="name">course.search</field>
+			<field name="model">openacademy.course</field>
+			<field name="arch" type="xml">
+				<search string="Sessions">
+					<filter name="my_courses" string="My Courses"
+						domain="[('responsible', '=', uid)]"
+						help="The courses I am responsible of."/>
+					<field name="name"/>
+					<field name="responsible"/>
+				</search>
+			</field>
+		</record>
+
         <record id="course_form_view" model="ir.ui.view">
             <field name="name">course.form</field>
             <field name="model">openacademy.course</field>
