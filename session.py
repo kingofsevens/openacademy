@@ -34,7 +34,15 @@ class Session(osv.Model):
                 res[session.id] = False
         return res
 
-
+    def _set_end_date(self, cr, uid, id, field, value, arg, context=None):
+        session = self.browse(cr, uid, id, context)
+        if session.start_date and value:
+            dt0 = datetime.strptime(session.start_date, DATE_FORMAT)
+            dt1 = datetime.strptime(value, DATE_FORMAT)
+            duration = (dt1 - dt0).days + 1
+        else:
+            duration = 0
+        self.write(cr, uid, [id], {'duration': duration}, context=context)
 
     def onchange_seats(self, cr, uid, ids, attendees, seats, context=None):
         if seats:
@@ -71,7 +79,8 @@ class Session(osv.Model):
         # function fields
         'completion': fields.function(_get_completion, type='float',
                         string='Completion', help='Percentage of taken seats.'),
-        'end_date': fields.function(_get_end_date, type='date', string='End Date'),
+        'end_date': fields.function(_get_end_date, fnct_inv=_set_end_date,
+                        type='date', string='End Date'),
         }
         
     _defaults = {
