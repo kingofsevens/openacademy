@@ -42,7 +42,8 @@
 								<field name="active"/>
                             </group>
                             <group string="Schedule">
-                                <field name="start_date"/>
+								<field name="start_date"
+									attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                                 <field name="duration"/>
                                 <field name="seats" 
 									on_change="onchange_seats(attendees, seats)"/>
