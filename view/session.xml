@@ -31,6 +31,7 @@
                                 <field name="course"/>
                                 <field name="instructor"/>
 								<field name="active"/>
+								<field name="state"/>
                             </group>
                             <group string="Schedule">
                                 <field name="start_date"/>

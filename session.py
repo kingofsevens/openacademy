@@ -73,6 +73,9 @@ class Session(osv.Model):
         'seats': fields.integer(string='Number of Seats'),
         'active': fields.boolean('Active'),
         'color': fields.integer('Color'),
+        'state': fields.selection(
+            [('draft', 'Draft'), ('confirmed', 'Confirmed'), ('done', 'Done')],
+            string='State', required=True, readonly=True),
         
         # relational fields
         'course': fields.many2one('openacademy.course', 
@@ -95,6 +98,7 @@ class Session(osv.Model):
     _defaults = {
         'active': True,
         'start_date': fields.date.today,
+        'state': 'draft',
     }
         
     def _check_instructor(self, cr, uid, ids, context=None):
