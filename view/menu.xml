@@ -29,6 +29,16 @@
 
         <menuitem id="menu_sessions" parent="menu_group" sequence="20"
             action="action_sessions"/>
-
+			
+		<record id="action_subscribe" model="ir.actions.act_window">
+		    <field name="name">Subscribe Attendees</field>
+		    <field name="res_model">openacademy.subscribe</field>
+		    <field name="view_mode">form</field>
+		    <field name="target">new</field>
+		</record>
+		
+		<menuitem id="menu_subscribe" parent="menu_group" sequence="30"
+		    action="action_subscribe"/>
+		
     </data>
 </openerp>
