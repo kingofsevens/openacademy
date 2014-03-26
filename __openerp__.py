@@ -17,6 +17,7 @@ This module is aimed at managing training sessions:
     'depends': ['base'],
     'data': [
         'security/openacademy.xml',
+        'security/ir.model.access.csv',
         'data/partner.xml',
         'workflow/session.xml',
         'view/menu.xml',
