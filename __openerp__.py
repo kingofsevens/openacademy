@@ -16,6 +16,7 @@ This module is aimed at managing training sessions:
     'website': 'http://7gates.co',
     'depends': ['base'],
     'data': [
+        'security/openacademy.xml',
         'data/partner.xml',
         'workflow/session.xml',
         'view/menu.xml',

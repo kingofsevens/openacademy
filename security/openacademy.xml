@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="category_openacademy" model="ir.module.category">
+            <field name="name">Open Academy</field>
+        </record>
+
+        <record id="group_user" model="res.groups">
+            <field name="category_id" ref="category_openacademy"/>
+            <field name="name">User</field>
+        </record>
+
+        <record id="group_manager" model="res.groups">
+            <field name="category_id" ref="category_openacademy"/>
+            <field name="name">Manager</field>
+            <field name="implied_ids" eval="[(4, ref('group_user'))]"/>
+        </record>
+
+    </data>
+</openerp>
