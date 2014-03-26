@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="subscribe_form_view" model="ir.ui.view">
+            <field name="name">subscribe.form</field>
+            <field name="model">openacademy.subscribe</field>
+            <field name="arch" type="xml">
+                <form string="Subscribe Attendees" version="7.0">
+                    <group>
+                        <field name="session"/>
+                        <field name="attendees"/>
+                    </group>
+                    <footer>
+                        <button special="cancel" string="Cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>
