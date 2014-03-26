@@ -8,7 +8,7 @@
             <field name="arch" type="xml">
                 <form string="Subscribe Attendees" version="7.0">
                     <group>
-                        <field name="session"/>
+                        <field name="sessions"/>
                         <field name="attendees"/>
                     </group>
                     <footer>

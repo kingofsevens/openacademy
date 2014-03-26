@@ -10,17 +10,17 @@ class Subscribe(osv.TransientModel):
     _name = 'openacademy.subscribe'
 
     _columns = {
-        'session': fields.many2one('openacademy.session', string='Session', required=True),
+        'sessions': fields.many2many('openacademy.session', string='Sessions', required=True),
         'attendees': fields.many2many('res.partner', string='Attendees'),
     }
 
-    def _get_default_session(self, cr, uid, context=None):
+    def _get_default_sessions(self, cr, uid, context=None):
         return context and \
             context.get('active_model') == 'openacademy.session' and \
-            context.get('active_id') or False
+            context.get('active_ids') or False
 
     _defaults = {
-        'session': _get_default_session,
+        'sessions': _get_default_sessions,
     }
 
 
@@ -29,10 +29,11 @@ class Subscribe(osv.TransientModel):
         wizard = self.browse(cr, uid, ids[0], context)
         # write on the session record to add attendees
         session_model = self.pool.get('openacademy.session')
+        session_ids = [session.id for session in wizard.sessions]
         values = {
             'attendees': [(4, partner.id) for partner in wizard.attendees],
         }
-        session_model.write(cr, uid, [wizard.session.id], values, context=context)
+        session_model.write(cr, uid, session_ids, values, context=context)
         # return {} to close the window
         return {}
         
