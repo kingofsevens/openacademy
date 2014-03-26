@@ -2,7 +2,8 @@
 <openerp>
     <data>
 
-        <menuitem id="menu_root" sequence="10" name="Open Academy"/>
+        <menuitem id="menu_root" sequence="10" name="Open Academy" 
+			groups="group_user"/>
 
         <menuitem id="menu_group" parent="menu_root" name="Open Academy"/>
 
