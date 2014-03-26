@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 
 from openerp.osv import osv, fields
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as DATE_FORMAT
+from openerp.tools.translate import _
 
 class Session(osv.Model):
     _name = 'openacademy.session'
@@ -59,8 +60,8 @@ class Session(osv.Model):
         res = {'value': {'completion': completion}}
         if seats < 0:
             res['warning'] = {
-                'title': "Warning: bad value",
-                'message': "The number of seats should not be negative!"
+                'title': _("Warning: bad value"),
+                'message': _("The number of seats should not be negative!"),
             }
         return res
 

@@ -4,14 +4,15 @@
 #
 
 from openerp.osv import osv, fields
+from openerp.tools.translate import _
 
 class Course(osv.Model):
     _name = 'openacademy.course'
     _description = 'Courses'
 
     _columns = {
-        'name': fields.char(string='Title', required=True),
-        'description': fields.text(string='Description'),
+        'name': fields.char(string='Title', required=True, translate=True),
+        'description': fields.text(string='Description', translate=True),
         
         # relational fields
         'responsible': fields.many2one('res.users', 
@@ -37,7 +38,7 @@ class Course(osv.Model):
     def copy(self, cr, uid, id, default, context=None):
         # duplicate the course with the given id
         course = self.browse(cr, uid, id, context)
-        new_name = "%s (copy)" % course.name
+        new_name = _("%s (copy)") % course.name
         # use a different name for the copy, and do not duplicate sessions
         default = dict(default, name=new_name, sessions=[])
         return super(Course, self).copy(cr, uid, id, default, context)
