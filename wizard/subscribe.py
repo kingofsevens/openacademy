@@ -13,3 +13,16 @@ class Subscribe(osv.TransientModel):
         'session': fields.many2one('openacademy.session', string='Session', required=True),
         'attendees': fields.many2many('res.partner', string='Attendees'),
     }
+
+    def action_subscribe(self, cr, uid, ids, context=None):
+        # we know that ids is a list with one element only
+        wizard = self.browse(cr, uid, ids[0], context)
+        # write on the session record to add attendees
+        session_model = self.pool.get('openacademy.session')
+        values = {
+            'attendees': [(4, partner.id) for partner in wizard.attendees],
+        }
+        session_model.write(cr, uid, [wizard.session.id], values, context=context)
+        # return {} to close the window
+        return {}
+        
