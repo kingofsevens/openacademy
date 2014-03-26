@@ -24,5 +24,6 @@ This module is aimed at managing training sessions:
         'view/course.xml',
         'view/session.xml',
         'view/partner.xml',
+        'view/subscribe.xml',
     ],
 }
