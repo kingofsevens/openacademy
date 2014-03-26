@@ -22,5 +22,14 @@
             </field>
         </record>
 
+		<!-- launch wizard from the context bar -->
+		<act_window id="action_subscribe_session"
+		    name="Add Attendees"
+		    src_model="openacademy.session"
+		    res_model="openacademy.subscribe"
+		    view_mode="form"
+		    target="new"
+		    key2="client_action_multi"/>
+
     </data>
 </openerp>
