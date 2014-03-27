@@ -25,6 +25,7 @@ This module is aimed at managing training sessions:
         'view/session.xml',
         'view/partner.xml',
         'view/subscribe.xml',
+        'view/dashboard.xml',
         'report/openacademy.xml',
     ],
 }

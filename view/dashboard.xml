@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="action_course_list" model="ir.actions.act_window">
+            <field name="name">Courses</field>
+            <field name="res_model">openacademy.course</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record id="action_session_calendar" model="ir.actions.act_window">
+            <field name="name">Session Calendar</field>
+            <field name="res_model">openacademy.session</field>
+            <field name="view_mode">calendar</field>
+        </record>
+
+        <record id="action_session_graph" model="ir.actions.act_window">
+            <field name="name">Participation by Course</field>
+            <field name="res_model">openacademy.session</field>
+            <field name="view_mode">graph</field>
+        </record>
+
+        <record id="dashboard_form" model="ir.ui.view">
+            <field name="name">Open Academy Dashboard</field>
+            <field name="model">board.board</field>
+            <field name="arch" type="xml">
+                <form string="Session Dashboard" version="7.0">
+                    <board style="2-1">
+                        <column>
+                            <action string="Session Calendar"
+                                name="%(action_session_calendar)d"/>
+                            <action string="Participation by Course"
+                                name="%(action_session_graph)d"/>
+                        </column>
+                        <column>
+                            <action string="Courses"
+                                name="%(action_course_list)d"/>
+                        </column>
+                    </board>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_dashboard" model="ir.actions.act_window">
+            <field name="name">Open Academy</field>
+            <field name="res_model">board.board</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="dashboard_form"/>
+        </record>
+
+        <menuitem id="menu_dashboard" parent="base.menu_reporting_dashboard" sequence="8"
+            action="action_dashboard"/>
+
+    </data>
+</openerp>
