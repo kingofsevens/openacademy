@@ -14,7 +14,7 @@ This module is aimed at managing training sessions:
     'version': '1.0',
     'author': '7Gates Interactive Technologies',
     'website': 'http://7gates.co',
-    'depends': ['base'],
+    'depends': ['base', 'report_webkit'],
     'data': [
         'security/openacademy.xml',
         'security/ir.model.access.csv',
@@ -25,5 +25,6 @@ This module is aimed at managing training sessions:
         'view/session.xml',
         'view/partner.xml',
         'view/subscribe.xml',
+        'report/openacademy.xml',
     ],
 }
